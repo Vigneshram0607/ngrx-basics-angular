@@ -1,5 +1,6 @@
-import { createReducer,on } from "@ngrx/store";
-import { increment } from "./counter.actions";
+import { Action, createReducer,on } from "@ngrx/store";
+import { CounterActions, INCREMENT, IncrementAction } from "./counter.actions";
+// import { increment } from "./counter.actions";
 const initialState = 0;
 
 // New approach
@@ -9,9 +10,9 @@ const initialState = 0;
 // ) 
 
 // Old version approach : Handling actions without createReducer()
-export function counterReducer(state=initialState, action: any, ){ //pass initial state as default value
-    if(action.type === '[Counter] Increment'){
-        return state + action.value;
+export function counterReducer(state=initialState, action: CounterActions | Action ){ //pass initial state as default value
+    if(action.type === INCREMENT){
+        return state + (action as IncrementAction).value;
     }
     console.log('state: ',state);
     return state;
