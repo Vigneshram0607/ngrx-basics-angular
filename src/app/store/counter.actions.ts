@@ -1,19 +1,23 @@
-import { createAction, isNgrxMockEnvironment, props,Action } from "@ngrx/store";
+import { createAction, props,Action } from "@ngrx/store";
 
-// export const increment = createAction(
-//     '[Counter] Increment', 
-//     props<{value: number}>()
-// );
+export const increment = createAction(
+    '[Counter] Increment', 
+    props<{value: number}>()
+);
+export const decrement = createAction(
+    '[Counter] Decrement', 
+    props<{value: number}>()
+);
 
 // Another way of defining actions
-export const INCREMENT = '[Counter] Increment';
+// export const INCREMENT = '[Counter] Increment';
 
-export class IncrementAction implements Action{
-    readonly type= INCREMENT;
+// export class IncrementAction implements Action{
+//     readonly type= INCREMENT;
 
-    constructor(public value: number){
+//     constructor(public value: number){
 
-    }
-}
+//     }
+// }
 
-export type CounterActions = IncrementAction
+// export type CounterActions = IncrementAction
